@@ -1,3 +1,5 @@
+var generating = false;
+
 window.onload = () => {
   if (Boolean(localStorage.api)) {
     document.getElementById("api").value = localStorage.api;
@@ -5,6 +7,8 @@ window.onload = () => {
 }
 
 function generate() {
+  if (generating) return alert("Please wait for the current generation to finish.");
+  generating = true
   let api = document.getElementById("api").value;
   let query = document.getElementById("query").value;
   let url = 'https://api.openai.com/v1/images/generations';
@@ -20,3 +24,4 @@ function generate() {
     body: JSON.stringify(data)
   }).then(response => response.json()).then(data => open(data.data[0].url)).catch(error => alert(error));
 }
+
