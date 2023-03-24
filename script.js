@@ -1,4 +1,4 @@
-if (localStorage.api) {
+if (Boolean(localStorage.api)) {
   document.getElementById("api").value = localStorage.api;
 }
 
