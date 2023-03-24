@@ -1,5 +1,7 @@
-if (Boolean(localStorage.api)) {
-  document.getElementById("api").value = localStorage.api;
+window.onload = () => {
+  if (Boolean(localStorage.api)) {
+    document.getElementById("api").value = localStorage.api;
+  }
 }
 
 function generate() {
