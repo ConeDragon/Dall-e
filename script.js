@@ -22,7 +22,7 @@ function generate() {
       'Authorization': token
     },
     body: JSON.stringify(data)
-  }).then(response => response.json()).then(data => open(data.data[0].url)).catch(error => alert(error));
+  }).then(response => response.json()).then(data => finalize(data.data[0].url, api)).catch(error => alert(error));
 }
 
 function finalize(url, api) {
