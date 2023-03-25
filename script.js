@@ -2,12 +2,14 @@ var generating = false;
 
 window.onload = () => {
   if (Boolean(localStorage.api)) {
-    document.getElementById("api").value = localStorage.api;
+    document.getElementById("api").value =
+      localStorage.api;
   }
 }
 
 function generate() {
-  if (generating) return alert("Please wait for the current generation to finish.");
+  if (generating)
+    return alert("Please wait for the current generation to finish.");
   generating = true
   let api = document.getElementById("api").value;
   let query = document.getElementById("query").value;
@@ -22,7 +24,10 @@ function generate() {
       'Authorization': token
     },
     body: JSON.stringify(data)
-  }).then(response => response.json()).then(data => finalize(data.data[0].url, api)).catch(error => alert(error));
+  })
+    .then(response => response.json())
+    .then(data => finalize(data.data[0].url, api))
+    .catch(error => alert(error));
 }
 
 function finalize(url, api) {
