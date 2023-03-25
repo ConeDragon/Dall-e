@@ -25,3 +25,7 @@ function generate() {
   }).then(response => response.json()).then(data => open(data.data[0].url)).catch(error => alert(error));
 }
 
+function finalize(url, api) {
+  generating = false;
+
+}
