@@ -27,5 +27,7 @@ function generate() {
 
 function finalize(url, api) {
   generating = false;
-
+  document.getElementById("generated").innerHTML =
+    `<img src="${url}"></img>`;
+  localStorage.api = api;
 }
